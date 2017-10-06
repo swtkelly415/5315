@@ -18,10 +18,10 @@
             success: function(xml) {  
              $(xml).find('CD').each(function(){  
               t.row.add( [
-                $(this).find('ARTIST').text(),
-                $(this).find('TITLE').text(),
-                $(this).find('YEAR').text(),
-                $(this).find('PRICE').text(),
+                $(this).find('SINGER').text(),
+                $(this).find('ALBUM').text(),
+                $(this).find('YEAROFALBUM').text(),
+                $(this).find('ALBUMPRICE').text(),
                 $(this).find('COMPANY').text(),
                 $(this).find('COUNTRY').text()
               ] ).draw( false );
@@ -36,10 +36,10 @@
   <table id="chart" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Artist</th>
-            <th>Title</th>
-            <th>Year</th>
-            <th>Price</th>
+            <th>Singer</th>
+            <th>Album</th>
+            <th>Yearofalbum</th>
+            <th>Album price</th>
             <th>Company</th>
             <th>Country</th>
         </tr>
@@ -47,10 +47,10 @@
 
     <tfoot>
         <tr>
-            <th>Artist</th>
-            <th>Title</th>
-            <th>Year</th>
-            <th>Price</th>
+            <th>Singer</th>
+            <th>Album</th>
+            <th>Yearofalbum</th>
+            <th>Album price</th>
             <th>Company</th>
             <th>Country</th>
         </tr>
@@ -78,13 +78,13 @@ function loadXMLDoc() {
 function myFunction(xml) {
   var i;
   var xmlDoc = xml.responseXML;
-  var table="<tr><th>Artist</th><th>Title</th></tr>";
+  var table="<tr><th>Singer</th><th>Album</th></tr>";
   var x = xmlDoc.getElementsByTagName("CD");
   for (i = 0; i <x.length; i++) { 
     table += "<tr><td>" +
-    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("Singer")[0].childNodes[0].nodeValue +
     "</td><td>" +
-    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("Album")[0].childNodes[0].nodeValue +
     "</td></tr>";
   }
   document.getElementById("demo").innerHTML = table;
